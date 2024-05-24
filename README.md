@@ -45,7 +45,19 @@ In this project, power users were identified through a detailed process involvin
 - **Threshold Tuning**: The threshold value of the model was adjusted to optimize performance. Despite testing various thresholds, the default value of 0.5 was retained as it provided the best balance between recall and precision.
 - **ROC AUC Curve Analysis**: The performance of the XGBoost ADASYN model was further validated using the ROC AUC curve, demonstrating strong predictive capabilities.
 
-## 5. VM Setup and Docker Image Deployment
+### 5. Create and Push Docker Image to Docker Hub
+    
+    1.Build the Docker image using the Dockerfile provided. This command creates an image tagged as xgboost_adasyn_poweruser_image:v1.
+    --docker build -t xgboost_adasyn_poweruser_image:v1 .
+    2.To verify that the image was built correctly, run it locally. This command runs the container in detached mode, mapping port 8000 of the container to port 8000 on the host.
+    --docker run -d -p 8000:8000 --name xgboost_container xgboost_adasyn_poweruser_image:v1
+    3.Before pushing the image to Docker Hub, tag it appropriately with your Docker Hub username and repository name.
+    --docker tag xgboost_adasyn_poweruser_image:v1 yaseminbellioglu/xgboost_adasyn_poweruser_image:v1
+    4.Finally, push the tagged image to Docker Hub. This step uploads the image to your Docker Hub repository, making it available for deployment on other machines.
+    --docker push yaseminbellioglu/xgboost_adasyn_poweruser_image:v1
+
+
+## 6. VM Setup and Docker Image Deployment
 
 A virtual machine (VM) was created on GCP Compute Engine. After the VM creation, an SSH connection was established to this VM. Following the SSH steps, the interface was accessed through the IP address. The steps below detail this process:
 
