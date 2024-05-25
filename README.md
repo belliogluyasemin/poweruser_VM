@@ -69,7 +69,7 @@ Initially, an Ubuntu VM was created with the necessary configurations and settin
 
 ### 2. SSH Connection
 An SSH connection was established to the created VM using the command:
-# Docker Image Setup
+## 3.Docker Image Setup
 The Docker image previously uploaded to Docker Hub was pulled into this VM and run. The necessary SSH commands are as follows:
 
     sudo apt update
