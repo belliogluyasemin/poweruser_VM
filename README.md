@@ -91,7 +91,7 @@ The Docker image previously uploaded to Docker Hub was pulled into this VM and r
 
 
 ### 4. Accessing the API
-As shown in the fastApi_VM.png file, the API can be accessed by connecting to the machine via the External IP Address.
+As shown in the fastApi_VM.png file, the API can be accessed by connecting to the VM via the External IP Address.
 
 
 
