@@ -11,15 +11,15 @@ Google Merchandise Store](https://shop.merch.google/) is an online store that se
 
 In this project, power users were identified through a detailed process involving feature engineering, model selection, and evaluation. The methodology used for identifying power users is outlined below:
 
-### 1. Feature Engineering
+## 1. Feature Engineering
 - **Data Augmentation**: Additional features were created, such as the average number of products in a basket, to enrich the dataset and improve model performance.
 - **Target Column**: Initially, power users were identified based on a z-score method. However, this method resulted in very few power users, making it insufficient. Therefore, based on the distributions, users who spent more than $110 were identified as power users, forming the basis for the classification target.
 
-### 2. Model Training and Oversampling
+## 2. Model Training and Oversampling
 - **Training Dataset Preparation**: The training dataset was adjusted using various oversampling methods to handle class imbalances.
 - **Oversampling Techniques**: Methods like RandomOverSample, SMOTE, and ADASYN were employed to balance the dataset, ensuring that the models could effectively learn from both the majority and minority classes.
 
-### 3. Model Selection
+## 3. Model Selection
 - **Hyperparameter Optimization**: GridSearchCV was used for hyperparameter tuning to find the best model configurations.
 - **Comparison of Models**: Several models were compared based on their performance metrics, including KNN, XGBoost, Logistic Regression, and Random Forest. The XGBoost model with ADASYN oversampling showed the best performance.
 
@@ -44,18 +44,21 @@ In this project, power users were identified through a detailed process involvin
 | RandomForest_ADASYN                         | 74.73%  | 32.70%    | 4.43%    |
 
 
-### 4. Threshold Tuning and Model Evaluation
+## 4. Threshold Tuning and Model Evaluation
 - **Threshold Tuning**: The threshold value of the model was adjusted to optimize performance. Despite testing various thresholds, the default value of 0.5 was retained as it provided the best balance between recall and precision.
 - **ROC AUC Curve Analysis**: The performance of the XGBoost ADASYN model was further validated using the ROC AUC curve, demonstrating strong predictive capabilities.
 
-### 5. Create and Push Docker Image to Docker Hub
+## 5. Create and Push Docker Image to Docker Hub
     
     1.Build the Docker image using the Dockerfile provided. This command creates an image tagged as xgboost_adasyn_poweruser_image:v1.
     --docker build -t xgboost_adasyn_poweruser_image:v1 .
+    
     2.To verify that the image was built correctly, run it locally. This command runs the container in detached mode, mapping port 8000 of the container to port 8000 on the host.
     --docker run -d -p 8000:8000 --name xgboost_container xgboost_adasyn_poweruser_image:v1
+    
     3.Before pushing the image to Docker Hub, tag it appropriately with your Docker Hub username and repository name.
     --docker tag xgboost_adasyn_poweruser_image:v1 yaseminbellioglu/xgboost_adasyn_poweruser_image:v1
+    
     4.Finally, push the tagged image to Docker Hub. This step uploads the image to your Docker Hub repository, making it available for deployment on other machines.
     --docker push yaseminbellioglu/xgboost_adasyn_poweruser_image:v1
 
@@ -68,8 +71,9 @@ A virtual machine (VM) was created on GCP Compute Engine. After the VM creation,
 Initially, an Ubuntu VM was created with the necessary configurations and settings.
 
 ### 2. SSH Connection
-An SSH connection was established to the created VM using the command:
-## 3.Docker Image Setup
+An SSH connection was established to the created VM using 
+
+### 3.Docker Image Setup
 The Docker image previously uploaded to Docker Hub was pulled into this VM and run. The necessary SSH commands are as follows:
 
     sudo apt update
@@ -86,7 +90,7 @@ The Docker image previously uploaded to Docker Hub was pulled into this VM and r
     sudo docker rmi image_id
 
 
-## 4. Accessing the API
+### 4. Accessing the API
 As shown in the fastApi_VM.png file, the API can be accessed by connecting to the machine via the External IP Address.
 
 
