@@ -4,6 +4,9 @@
 
 # Power User Determination and VM Setup
 
+### About Data
+Google Merchandise Store](https://shop.merch.google/) is an online store that sells Google-branded merchandise. The site uses Google Analytics 4's standard web ecommerce implementation along with enhanced measurement. The ga4_obfuscated_sample_ecommerce dataset available through the [BigQuery Public Datasets](https://console.cloud.google.com/bigquery) program contains a sample of obfuscated BigQuery event export data for three months from 2020-11-01 to 2021-01-31.
+
 ## Power User Determination Steps
 
 In this project, power users were identified through a detailed process involving feature engineering, model selection, and evaluation. The methodology used for identifying power users is outlined below:
