@@ -44,7 +44,7 @@ In this project, power users were identified through a detailed process involvin
 | RandomForest_ADASYN                         | 74.73%  | 32.70%    | 4.43%    |
 
 
-### 4. Threshold Adjustment and Model Evaluation
+### 4. Threshold Tuning and Model Evaluation
 - **Threshold Tuning**: The threshold value of the model was adjusted to optimize performance. Despite testing various thresholds, the default value of 0.5 was retained as it provided the best balance between recall and precision.
 - **ROC AUC Curve Analysis**: The performance of the XGBoost ADASYN model was further validated using the ROC AUC curve, demonstrating strong predictive capabilities.
 
