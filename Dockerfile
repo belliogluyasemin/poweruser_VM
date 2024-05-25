@@ -22,6 +22,7 @@ CMD ["uvicorn", "main:app", "--host=0.0.0.0", "--port=8000"]
 
 
 ##Terminal CMD
+
 ##Create Image
 ##docker build -t xgboost_adayn_poweruser_image:v1 .
 ##Create Container -local
